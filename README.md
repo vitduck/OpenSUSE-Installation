@@ -70,3 +70,15 @@
    * Blank screen during installation of Microsoft Office:
      * Before installtion: disable 3d hardware acceleration at VM's level.   
      * After installation: disable 3d hardware acceleration locally for Word/Exel/Powerpoint: Options -> Advances -> Display
+
+4. Media codec installation 
+   * Add packman repo
+     ```
+     $ sudo zypper addrepo -cfp 90 'https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Leap_15.5/' packman
+     $ sudo zypper refresh
+     $ sudo zypper dist-upgrade --from packman --allow-vendor-change
+     ```
+   * Install media player and codecs
+     ```
+     $ sudo zypper install --from packman ffmpeg MPlayer gstreamer-plugins-{good,bad,ugly,libav} libavcodec
+     ```     
